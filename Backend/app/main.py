@@ -12,9 +12,13 @@ load_dotenv()
 app = FastAPI(title="Hugging Face AI SEO Audit Engine API")
 
 # Allow CORS for Next.js Frontend
+# Whitelist specific client execution runtime origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://seo-audit-tool-five-tau.vercel.app" # 🚀 Your brand new verified production client layer link!
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
