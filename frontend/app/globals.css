@@ -1,0 +1,35 @@
+
+@import "tailwindcss";
+
+@theme {
+  /* Dynamic utilities are auto-compiled here natively in v4 */
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #020617 !important; /* Force strict dark slate background layout */
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar configurations for Reviews container */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(20, 184, 166, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 184, 166, 0.4);
+}

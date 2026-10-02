@@ -1,0 +1,14 @@
+# Node dependency boundaries
+**/node_modules/
+**/.next/
+**/out/
+
+# Python caching barriers
+**/__pycache__/
+**/*.pyc
+**/.venv/
+**/env/
+
+# Sensitive key security layers
+**/.env
+**/.env.local
