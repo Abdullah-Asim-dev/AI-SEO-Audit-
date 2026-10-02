@@ -26,7 +26,9 @@ export const metadata: Metadata = {
   creator: "AI SEO Audit",
   publisher: "AI SEO Audit",
   category: "SEO Tools",
-
+  verification: {
+    google: "BrWbSY0vFPvJJ1LibWPHLsaOVRmPcNct4iq5gaenyZM",
+  },
   // Google ignores the keywords meta tag; kept only as an internal record.
   keywords: [
     "SEO audit tool",
