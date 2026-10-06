@@ -1,50 +1,28 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+// Change this to your custom domain once you have one.
 const siteUrl = "https://seo-audit-tool-five-tau.vercel.app";
-
 const siteName = "AI SEO Audit";
-
-const title = "SEO Audit Tool – Free Technical SEO Checker & Website Analyzer";
-
+const title = "Free SEO Audit Tool – AI Technical SEO Checker";
 const description =
-  "Free SEO audit tool that checks technical SEO, meta tags, headings and links, then gives AI-powered fixes you can act on.";
+  "Run a free technical SEO audit on any URL. Checks title, meta description, headings, alt text and broken links, then gives AI-written fixes. No signup.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-
-  title: {
-    default: title,
-    template: "%s | AI SEO Audit",
-  },
-
+  title: { default: title, template: "%s | AI SEO Audit" },
   description,
-
   applicationName: siteName,
-
-  authors: [{ name: "AI SEO Audit", url: siteUrl }],
-  creator: "AI SEO Audit",
-  publisher: "AI SEO Audit",
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
   category: "SEO Tools",
-  verification: {
-    google: "BrWbSY0vFPvJJ1LibWPHLsaOVRmPcNct4iq5gaenyZM",
-  },
-  // Google ignores the keywords meta tag; kept only as an internal record.
-  keywords: [
-    "SEO audit tool",
-    "free SEO audit tool",
-    "technical SEO audit",
-    "website SEO checker",
-    "SEO checker",
-    "website audit tool",
-    "free SEO checker",
-    "AI SEO audit",
-  ],
-
-  alternates: {
-    canonical: "/",
-  },
-
+  verification: { google: "BrWbSY0vFPvJJ1LibWPHLsaOVRmPcNct4iq5gaenyZM" },
+  // Every new page must set its own alternates.canonical, or it inherits "/".
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -56,7 +34,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,21 +42,9 @@ export const metadata: Metadata = {
     title,
     description,
   },
-
-  // No image is set yet, so use the plain "summary" card.
-  // After adding public/og.png (1200x630), add images: ["/og.png"]
-  // to openGraph and twitter, and switch card to "summary_large_image".
-  twitter: {
-    card: "summary",
-    title,
-    description,
-  },
-
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  // The image comes from app/opengraph-image.tsx automatically.
+  twitter: { card: "summary_large_image", title, description },
+  formatDetection: { email: false, address: false, telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -110,32 +75,23 @@ const structuredData = {
       operatingSystem: "Any",
       browserRequirements: "Requires a modern web browser",
       inLanguage: "en-US",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
